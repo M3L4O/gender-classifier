@@ -49,8 +49,6 @@ def get_fsets(
         datasets[1], training_rate=training_rate, shuffle=shuffle, k=k
     )
 
-    training_set, test_set = [], []
-
     if k == 0:
 
         training_set = training_sets[0] + training_sets[1]
@@ -62,5 +60,4 @@ def get_fsets(
         sets[0] + sets[1] for sets in zip(training_sets[0], training_sets[1])
     ]
     test_set = [sets[0] + sets[1] for sets in zip(test_sets[0], test_sets[1])]
-
     return training_set, test_set
