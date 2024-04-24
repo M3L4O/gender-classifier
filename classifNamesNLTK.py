@@ -6,9 +6,11 @@ nomesRot = (
     [(name,'masc') for name in names.words('male.txt')] + [(name,'fem') for name in names.words('female.txt')]
 )
 
-print(names)
+train, test = get_fsets(nomesRot, ["masc", "fem"],shuffle=True)
 
-train, test = get_fsets(nomesRot, shuffle=True)
+print(len(list(filter(lambda x: x[1] == "masc", train))),len(list(filter(lambda x: x[1] == "fem", train))), len(train))
+print(len(list(filter(lambda x: x[1] == "masc", test))), len(list(filter(lambda x: x[1] == "fem", test))), len(test))
+
 
 classif1 = nltk.NaiveBayesClassifier.train(train)
 
