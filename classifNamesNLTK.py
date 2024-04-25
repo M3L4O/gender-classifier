@@ -3,11 +3,12 @@ from nltk.corpus import names
 
 from data import get_features, get_fsets
 
+
 nomesRot = [(name, "masc") for name in names.words("male.txt")] + [
     (name, "fem") for name in names.words("female.txt")
 ]
 
-train, test = get_fsets(nomesRot, ["masc", "fem"], shuffle=True)
+train, test = get_fsets(nomesRot, ["masc", "fem"], shuffle=True, training_rate=0.8)
 
 print(
     len(list(filter(lambda x: x[1] == "masc", train))),
@@ -32,7 +33,7 @@ print(nltk.classify.accuracy(classif1, test))
 classif1.show_most_informative_features(10)
 
 
-train_sets, test_sets = get_fsets(nomesRot, ["masc", "fem"], shuffle=True, k=5)
+train_sets, test_sets = get_fsets(nomesRot, ["masc", "fem"], shuffle=True, k=10)
 
 accuracies = []
 i = 0

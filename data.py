@@ -1,6 +1,7 @@
 import random
 from math import floor
 
+random.seed(1)
 
 def get_features(word: str):
     return {"last_letter": word[-1], "first_letter": word[0], "word_len": len(word)}

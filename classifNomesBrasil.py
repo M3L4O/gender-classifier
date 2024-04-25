@@ -17,7 +17,7 @@ with open("nomes.csv", "r", encoding="utf-8") as file:
             if name:
                 nomesRot.append((name, label))
 
-train, test = get_fsets(nomesRot, ["M", "F"], shuffle=True)
+train, test = get_fsets(nomesRot, ["M", "F"], shuffle=True, training_rate=.75)
 
 print(
     len(list(filter(lambda x: x[1] == "M", train))),
